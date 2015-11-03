@@ -1,0 +1,733 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Flux Analytics Public API",
+    "description": "This API is responsible for collecting logs. It is the public part of the analytics service.",
+    "contact": {
+      "email": "umutcan@gameogs.com"
+    }
+  },
+  "paths": {
+    "/log/devlog/php": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send PHP Log",
+        "operationId": "phpLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/DevLogEntry"
+              }
+          }
+        ]
+      }
+    },
+    "/log/devlog/flash": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send Flash Log",
+        "operationId": "flashLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/DevLogEntry"
+            }
+          }
+        ]
+      }
+    },
+    "/log/devlog/js": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send JavaScript Log",
+        "operationId": "jsLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/DevLogEntry"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/access": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Sending Access Log",
+        "operationId": "accessLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "AccessLog",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/AccessLog"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/action": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Sending Action Log",
+        "operationId": "actionLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Action Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/ActionLog"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/diff": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send Diff Log",
+        "operationId": "DiffLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Diff Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/DiffLog"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/state": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send State Log",
+        "operationId": "StateLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "State Log Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/StateLog"
+            }
+          }
+        ]
+      }
+    },
+    "/log/user/register": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send users",
+        "operationId": "User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "User Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/User"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/payment": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send PaymentLog",
+        "operationId": "PaymentLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "PaymentLog Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/PaymentLog"
+            }
+          }
+        ]
+      }
+    },
+    "/log/gamelog/calc": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "description": "",
+        "tags": [
+          "log"
+        ],
+        "summary": "Send Calc Logs",
+        "operationId": "CalcLog",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "description": "CalcLog Entry",
+            "name": "body",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/CalcLog"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "no-auth": {}
+  },
+  "tags": [
+    {
+      "name": "listings/log",
+      "description": "Sending single log"
+    }
+  ],
+  "host": null,
+  "basePath": "/",
+  "definitions": {
+    "DevLogEntry": {
+      "required": [
+        "app",
+        "message",
+        "logTime"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        },
+        "requestCode": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "enterTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "system": {
+          "$ref": "#/definitions/object"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "AccessLog": {
+      "required": [
+        "app",
+        "vendorId",
+        "playerId",
+        "logTime"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "vendorUserId": {
+          "type": "string"
+        },
+        "vendorId": {
+          "type": "string"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "extra": {
+          "$ref": "#/definitions/object"
+        },
+        "system": {
+          "$ref": "#/definitions/object"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "ActionLog": {
+      "required": [
+        "app",
+        "playerId",
+        "actionId",
+        "itemId",
+        "funnelName",
+        "enterTime",
+        "logTime",
+        "registrationTime"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "actionId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "itemId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "funnelName": {
+          "type": "string"
+        },
+        "enterTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "registrationTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "extra": {
+          "$ref": "#/definitions/object"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "DiffLog": {
+      "required": [
+        "app",
+        "playerId",
+        "diffType",
+        "diff",
+        "reason",
+        "itemId",
+        "level",
+        "logTime",
+        "current"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "diffType": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "diff": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "itemId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "enterTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "extra": {
+          "$ref": "#/definitions/object"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "app",
+        "appuid",
+        "createTime",
+        "vendors",
+        "status"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "appuid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "referrer": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "vendors": {
+          "$ref": "#/definitions/Vendors"
+        }
+      }
+    },
+    "Vendors": {
+      "properties": {
+        "fb": {
+          "$ref": "#/definitions/object"
+        }
+      }
+    },
+    "StateLog": {
+      "required": [
+        "app",
+        "vendorId",
+        "playerId",
+        "logTime"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "vendorId": {
+          "type": "string"
+        },
+        "vendorUserId": {
+          "type": "string"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "enterTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "extra": {
+          "$ref": "#/definitions/object"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "PaymentLog": {
+      "required": [
+        "app",
+        "paymentVendorId",
+        "playerId",
+        "logTime"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "playerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "paymentVendorId": {
+          "type": "string"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "deviceId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usdExchangeRate": {
+          "$ref": "#/definitions/float"
+        },
+        "itemCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "itemId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/float"
+        },
+        "extra": {
+          "$ref": "#/definitions/object"
+        },
+        "system": {
+          "$ref": "#/definitions/object"
+        },
+        "offerType": {
+          "type": "string"
+        },
+        "testId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "testGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "CalcLog": {
+      "required": [
+        "app",
+        "category",
+        "metric",
+        "logTime",
+        "val"
+      ],
+      "properties": {
+        "app": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "metric": {
+          "type": "string"
+        },
+        "logTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "amount": {
+          "$ref": "#/definitions/float"
+        }
+      }
+    },
+    "object": {}
+  }
+}

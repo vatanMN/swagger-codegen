@@ -21,7 +21,8 @@ public class CSharpClientCodegen extends DefaultCodegen implements CodegenConfig
     protected String packageName = "IO.Swagger";
     protected String packageVersion = "1.0.0";
     protected String clientPackage = "IO.Swagger.Client";
-    protected String sourceFolder = "src" + File.separator + "main" + File.separator + "csharp";
+    //protected String sourceFolder = "src" + File.separator + "main" + File.separator + "csharp";
+    protected String sourceFolder = "";
 
     public CSharpClientCodegen() {
         super();
@@ -112,8 +113,8 @@ public class CSharpClientCodegen extends DefaultCodegen implements CodegenConfig
                 sourceFolder + File.separator + clientPackage.replace(".", java.io.File.separator), "ApiClient.cs"));
         supportingFiles.add(new SupportingFile("ApiException.mustache",
                 sourceFolder + File.separator + clientPackage.replace(".", java.io.File.separator), "ApiException.cs"));
-        supportingFiles.add(new SupportingFile("Newtonsoft.Json.dll", "bin", "Newtonsoft.Json.dll"));
-        supportingFiles.add(new SupportingFile("RestSharp.dll", "bin", "RestSharp.dll"));
+     /*   supportingFiles.add(new SupportingFile("Newtonsoft.Json.dll", "bin", "Newtonsoft.Json.dll"));
+        supportingFiles.add(new SupportingFile("RestSharp.dll", "bin", "RestSharp.dll"));*/
         supportingFiles.add(new SupportingFile("compile.mustache", "", "compile.bat"));
         supportingFiles.add(new SupportingFile("README.md", "", "README.md"));
 

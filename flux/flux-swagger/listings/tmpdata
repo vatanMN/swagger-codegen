@@ -1,0 +1,172 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "resourcePath":"/tmpdata/{slotId}",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/apps/{appid}/users/{uid}/tmpdata/{slotId}",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get user tmpdata",
+          "nickname":"getUserTmpData",
+          "type":"UserTmpData",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"slotId",
+              "description":"slot id that defined by app",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"'{slotId}' does not exist."
+            }
+          ]
+        },
+        {  
+          "method":"PUT",
+          "summary":"Set user tmpdata",
+          "nickname":"setUserTmpData",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"slotId",
+              "description":"slot id that defined by app",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"body",
+              "description":"value and ttl values required",
+              "required":true,
+              "type":"UserTmpData",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"slot '{slotId}' is not defined by the app."
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"value and ttl parameters are required."
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"value size must be less than or equal to SLOT_VALUE_MAX_SIZE"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"ttl must be less than SLOT_MAX_LIFETIME seconds"
+            }
+          ]
+        },
+        {  
+          "method":"DELETE",
+          "summary":"Delete user tmpdata",
+          "nickname":"deleteUserTmpData",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"slotId",
+              "description":"slot id that defined by app",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"'{slotId}' does not exist."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "UserTmpData":{  
+      "id":"UserTmpData",
+      "properties":{  
+        "value":{  
+          "type":"string"
+        },
+        "ttl":{  
+          "type":"integer",
+          "format":"int64"
+        }
+      }
+    }
+  }
+}

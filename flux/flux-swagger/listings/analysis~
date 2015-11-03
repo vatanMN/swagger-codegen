@@ -1,0 +1,304 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/actions/vu.uc",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get create user vendor actions  [Analysis]",
+          "nickname":"getData",
+          "type":"AnalysisResponse",
+          "parameters":[  
+            {  
+              "name":"offset",
+              "description":"start time of data",
+              "required":true,
+              "type":"timestamp",
+              "paramType":"query"
+            },
+            {  
+              "name":"limit",
+              "description":"maksimum number of returned data",
+              "required":true,
+              "type":"number",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "message":"Actions not found.",
+              "code":404
+            },
+            {  
+              "status":"error",
+              "message":"Limit must be greater than or equal to 1",
+              "code":500
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/actions/{appid}.{actiontypeid}",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get actions [Analysis]",
+          "notes":"uc: user create; um: user vendor move; cs: status change",
+          "nickname":"getData",
+          "type":"AnalysisResponse",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"actiontypeid",
+              "description":"Aplication Type Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "uc",
+                "um",
+                "cs"
+              ]
+            },
+            {  
+              "name":"offset",
+              "description":"start time of data",
+              "required":true,
+              "type":"timestamp",
+              "paramType":"query"
+            },
+            {  
+              "name":"limit",
+              "description":"maksimum number of returned data",
+              "required":true,
+              "type":"number",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"Actions not found.",
+              "code":404
+            },
+            {  
+              "status":"error",
+              "message":"Limit must be greater than or equal to 1",
+              "code":500
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/actions/vu.uc/details/{detailname}",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get create user vendor actions details [Analysis]",
+          "nickname":"getData",
+          "type":"AnalysisResponseDetails",
+          "parameters":[  
+            {  
+              "name":"detailname",
+              "description":"Name of detail userbase/uservendor",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "userapp",
+                "uservendor"
+              ]
+            },
+            {  
+              "name":"offset",
+              "description":"start time of data",
+              "required":true,
+              "type":"timestamp",
+              "paramType":"query"
+            },
+            {  
+              "name":"limit",
+              "description":"maksimum number of returned data",
+              "required":true,
+              "type":"number",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"Actions not found.",
+              "code":404
+            },
+            {  
+              "status":"error",
+              "message":"Limit must be greater than or equal to 1",
+              "code":500
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/actions/{appid}.{actiontypeid}/details/{detailname}",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get action details [Analysis]",
+          "notes":"uc: user create; um: user vendor move; cs: status change",
+          "nickname":"getData",
+          "type":"AnalysisResponseDetails",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"actiontypeid",
+              "description":"Aplication Type Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "uc",
+                "um",
+                "cs"
+              ]
+            },
+            {  
+              "name":"detailname",
+              "description":"Name of detail",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "userapp",
+                "uservendor"
+              ]
+            },
+            {  
+              "name":"offset",
+              "description":"start time of data",
+              "required":true,
+              "type":"timestamp",
+              "paramType":"query"
+            },
+            {  
+              "name":"limit",
+              "description":"maksimum number of returned data",
+              "required":true,
+              "type":"number",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"Actions not found.",
+              "code":404
+            },
+            {  
+              "status":"error",
+              "message":"Limit must be greater than or equal to 1",
+              "code":500
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "Action":{  
+      "id":"Action",
+      "properties":{  
+        "actionid":{  
+          "type":"string",
+          "description":"Action Id"
+        },
+        "uid":{  
+          "type":"string",
+          "description":"User id"
+        },
+        "tmc":{  
+          "type":"string",
+          "description":""
+        },
+        "vuid":{  
+          "type":"string",
+          "description":"vendor id"
+        }
+      },
+      "required":[  
+        "actionid",
+        "uid",
+        "tmc",
+        "vuid"
+      ]
+    },
+    "AnalysisResponse":{  
+      "id":"AnalysisResponse",
+      "properties":{  
+        "LastEvaluatedKey":{  
+          "type":"string"
+        },
+        "actions":{  
+          "type":"array",
+          "items":{  
+            "$ref":"Action"
+          }
+        }
+      },
+      "required":[  
+        "LastEvaluatedKey",
+        "actions"
+      ]
+    },
+    "AnalysisResponseDetails":{  
+      "id":"AnalysisResponseDetails",
+      "properties":{  
+        "LastEvaluatedKey":{  
+          "type":"string"
+        },
+        "users":{  
+          "type":"array"
+        }
+      },
+      "required":[  
+        "LastEvaluatedKey",
+        "users"
+      ]
+    }
+  }
+}

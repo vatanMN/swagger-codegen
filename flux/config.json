@@ -1,0 +1,6 @@
+{
+	"modelPackage" : "Core.Model",
+	"apiPackage" : "Core.Api",
+	"clientPackage" : "Core.Client",
+	"packageName" : "Core"
+}

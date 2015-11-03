@@ -1,0 +1,87 @@
+  {  "/apps/{appid}/settings": {
+      "put": {
+        "responses": {
+          "400": {
+            "description": "Request body must be a non empty valid json object."
+          },
+          "404": {
+            "description": "Application \"{appid}\" not found"
+          }
+        },
+        "description": "",
+        "summary": "Update app's settings [Developer]",
+        "operationId": "setAppSettings",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Application Id",
+            "name": "appid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Application settings",
+            "name": "appdata",
+            "required": true,
+            "type":"json"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/data/{path}": {
+      "put": {
+        "responses": {
+          "400": {
+            "description": "[{field}]: Operation \"{op}\" is not permitted for this type."
+          },
+          "404": {
+            "description": "Application \"{appid}\" not found"
+          }
+        },
+        "description": "",
+        "tags": [
+          "data"
+        ],
+        "summary": "Update partial custom data",
+        "operationId": "setData",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "description": "Application id",
+            "name": "appid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "user id",
+            "name": "uid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "description": "Path to sub-object. Default is /",
+            "name": "path",
+            "required": true,
+            "type": "string",
+            "default": "/"
+          },
+          {
+            "in": "body",
+            "description": "Data object with structure defined in app manifest.",
+            "name": "body",
+            "required": true,
+            "type": "object"
+          }
+        ]
+      }
+    }
+  }

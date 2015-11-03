@@ -1,0 +1,21 @@
+{
+  "apiVersion": "0.0.1",
+  "swaggerVersion": "1.2",
+  "apis": [
+    {
+      "path": "/listings/log",
+      "description": "Sending single log"
+    }
+  ],
+    "authorizations": {
+    "no-auth": {}
+  },
+  "info": {
+    "title": "Flux Analytics Public API",
+    "description": "This API is responsible for collecting logs. It is the public part of the analytics service.",
+    "termsOfServiceUrl": "",
+    "contact": "umutcan@gameogs.com",
+    "license": "",
+    "licenseUrl": ""
+  }
+}

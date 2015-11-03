@@ -1,0 +1,286 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "resourcePath":"/tmpdata/{slotId}",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/apps/{appid}/users/{uid}/lists/{listid}",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get user List",
+          "nickname":"getList",
+          "type":"List",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"listid",
+              "description":"List Id",
+              "required":true,
+              "type":"string",
+              "defaultValue":"friends",
+              "paramType":"path"
+            },
+            {  
+              "name":"vid",
+              "description":"user vendor id",
+              "required":false,
+              "type":"string",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User list \"{listid}\" not found"
+            }
+          ]
+        },
+        {  
+          "method":"PUT",
+          "summary":"Update User List",
+          "nickname":"updateList",
+          "type":"ListResponse",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"listid",
+              "description":"List Id",
+              "required":true,
+              "type":"string",
+              "defaultValue":"friends",
+              "paramType":"path"
+            },
+            {  
+              "name":"body",
+              "description":"vid and lst values required",
+              "required":true,
+              "type":"ListRequest",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"\"listid\" and \"user list\" are required."
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User list \"{listid}\" not found"
+            }
+          ]
+        },
+        {  
+          "method":"POST",
+          "summary":"Set user List",
+          "nickname":"postList",
+          "type":"ListResponse",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"listid",
+              "description":"List Id",
+              "required":true,
+              "type":"string",
+              "defaultValue":"friends",
+              "paramType":"path"
+            },
+            {  
+              "name":"body",
+              "description":"vid and lst values required",
+              "required":true,
+              "type":"ListRequest",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"\"listid\" and \"user list\" are required."
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User list \"{listid}\" not found"
+            }
+          ]
+        },
+        {  
+          "method":"DELETE",
+          "summary":"Delete user List",
+          "nickname":"deleteList",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"listid",
+              "description":"List Id",
+              "required":true,
+              "type":"string",
+              "defaultValue":"friends",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"\"listid\" is required."
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User list \"{listid}\" not found"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "List":{  
+      "id":"List",
+      "properties":{  
+        "list":{  
+          "type":"array",
+          "items":{  
+            "$ref":"ListEntity"
+          }
+        }
+      },
+      "required":[  
+        "list"
+      ]
+    },
+    "ListEntity":{  
+      "id":"ListEntity",
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        }
+      },
+      "required":[  
+        "appuid"
+      ]
+    },
+    "ListRequest":{  
+      "id":"ListRequest",
+      "properties":{  
+        "vid":{  
+          "type":"string",
+          "description":"vendor id"
+        },
+        "lst":{  
+          "type":"array",
+          "items":{  
+            "$ref":"string"
+          }
+        }
+      },
+      "required":[  
+        "lst",
+        "vid"
+      ]
+    },
+    "ListResponse":{  
+      "id":"ListResponse",
+      "properties":{  
+        "valid":{  
+          "type":"array",
+          "items":{  
+            "$ref":"string"
+          }
+        },
+        "invalid":{  
+          "type":"array",
+          "items":{  
+            "$ref":"string"
+          }
+        }
+      },
+      "required":[  
+        "valid",
+        "invalid"
+      ]
+    }
+  }
+}

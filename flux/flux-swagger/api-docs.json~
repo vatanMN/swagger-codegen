@@ -1,0 +1,1882 @@
+{  
+  "swagger":"2.0",
+  "info":{  
+    "version":"1.0.0",
+    "title":"Flux Core Documentation",
+    "description":"..."
+  },
+  "paths":{  
+    "/actions/vu.uc":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Actions not found."
+          },
+          "500":{  
+            "description":"Limit must be greater than or equal to 1"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/AnalysisResponse"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Get create user vendor actions  [Analysis]",
+        "operationId":"getVendorUserCreateActions",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "analysis"
+        ],
+        "parameters":[  
+          {  
+            "in":"query",
+            "description":"start time of data",
+            "name":"offset",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/timestamp"
+            }
+          },
+          {  
+            "in":"query",
+            "description":"maksimum number of returned data",
+            "name":"limit",
+            "required":true,
+            "type":"number"
+          }
+        ]
+      }
+    },
+    "/actions/{appid}.{actiontypeid}":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Actions not found."
+          },
+          "500":{  
+            "description":"Limit must be greater than or equal to 1"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/AnalysisResponse"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Get actions [Analysis]",
+        "operationId":"getActions",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "analysis"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Aplication Type Id",
+            "name":"actiontypeid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"query",
+            "description":"start time of data",
+            "name":"offset",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/timestamp"
+            }
+          },
+          {  
+            "in":"query",
+            "description":"maksimum number of returned data",
+            "name":"limit",
+            "required":true,
+            "type":"number"
+          }
+        ]
+      }
+    },
+    "/actions/vu.uc/details/{detailname}":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Actions not found."
+          },
+          "500":{  
+            "description":"Limit must be greater than or equal to 1"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/AnalysisResponseDetails"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Get create user vendor actions details [Analysis]",
+        "operationId":"getVendorUserCreateActionDetails",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "analysis"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Name of detail userbase/uservendor",
+            "name":"detailname",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"query",
+            "description":"start time of data",
+            "name":"offset",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/timestamp"
+            }
+          },
+          {  
+            "in":"query",
+            "description":"maksimum number of returned data",
+            "name":"limit",
+            "required":true,
+            "type":"number"
+          }
+        ]
+      }
+    },
+    "/actions/{appid}.{actiontypeid}/details/{detailname}":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Actions not found."
+          },
+          "500":{  
+            "description":"Limit must be greater than or equal to 1"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/AnalysisResponseDetails"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Get action details [Analysis]",
+        "operationId":"getActionDetails",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "analysis"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Aplication Type Id",
+            "name":"actiontypeid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Name of detail",
+            "name":"detailname",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"query",
+            "description":"start time of data",
+            "name":"offset",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/timestamp"
+            }
+          },
+          {  
+            "in":"query",
+            "description":"maksimum number of returned data",
+            "name":"limit",
+            "required":true,
+            "type":"number"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/settings":{  
+      "put":{  
+        "responses":{  
+          "400":{  
+            "description":"Request body must be a non empty valid json object."
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          }
+        },
+        "description":"",
+        "summary":"Update app's settings [Developer]",
+        "operationId":"getAppSettings",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "apps"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"body",
+            "description":"Application Id",
+            "name":"appdata",
+            "required":true,
+            "schema":{  
+              "type":"string"
+            }
+          }
+        ]
+      }
+    },
+    "/apps":{  
+      "post":{  
+        "responses":{  
+          "400":{  
+            "description":"[id] or [name]: This field is missing."
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/App"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Create an App [Admin]",
+        "operationId":"createApp",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "apps"
+        ],
+        "parameters":[  
+          {  
+            "in":"body",
+            "description":"Application Id",
+            "name":"appdata",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/App"
+            }
+          }
+        ]
+      }
+    },
+    "/batch":{  
+      "post":{  
+        "responses":{  
+          "404":{  
+            "description":"\"method\" and \"path\" parameters are required for every sub request in batch service."
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/BatchResponse"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Send batch requests",
+        "operationId":"sendBatchRequests",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "batch"
+        ],
+        "parameters":[  
+          {  
+            "in":"body",
+            "description":"Batch request",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/BatchRequest"
+            }
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/data":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "type":"json"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "data"
+        ],
+        "summary":"Get custom data",
+        "operationId":"getData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/data{path}":{  
+      "put":{  
+        "responses":{  
+          "400":{  
+            "description":"[{field}]: Operation \"{op}\" is not permitted for this type."
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          }
+        },
+        "description":"",
+        "tags":[  
+          "data"
+        ],
+        "summary":"Update partial custom data",
+        "operationId":"setData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Path to sub-object. Default is /",
+            "name":"path",
+            "required":true,
+            "type":"string",
+            "default":"/"
+          },
+          {  
+            "in":"body",
+            "description":"Data object with structure defined in app manifest.",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/json"
+            }
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/lists/{listId}/data{path}":{  
+      "get":{  
+        "responses":{  
+          "400":{  
+            "description":"Field is not defined."
+          },
+          "404":{  
+            "description":"User list \"{listid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "type":"json"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "data"
+        ],
+        "summary":"Get lists' custom data",
+        "operationId":"getListData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List id",
+            "name":"listId",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Path to sub-object. Default is / (root)",
+            "name":"path",
+            "required":false,
+            "type":"string",
+            "default":"/"
+          },
+          {  
+            "in":"query",
+            "description":"Optional comma separated list of fields in sub-object",
+            "name":"fields",
+            "required":false,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/health":{  
+      "get":{  
+        "responses":{  
+          "200":{  
+            "description":"No response was specified"
+          }
+        },
+        "tags":[  
+          "health"
+        ],
+        "description":"",
+        "summary":"Test system health",
+        "operationId":"getHealth",
+        "produces":[  
+          "application/json"
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/lists/{listid}":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"User list \"{listid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/UserList"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "lists"
+        ],
+        "summary":"Get user List",
+        "operationId":"getList",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List Id",
+            "name":"listid",
+            "required":true,
+            "type":"string",
+            "default":"friends"
+          },
+          {  
+            "in":"query",
+            "description":"user vendor id",
+            "name":"vid",
+            "required":false,
+            "type":"string"
+          }
+        ]
+      },
+      "put":{  
+        "responses":{  
+          "400":{  
+            "description":"\"listid\" and \"user list\" are required."
+          },
+          "404":{  
+            "description":"User list \"{listid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/ListResponse"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "lists"
+        ],
+        "summary":"Update User List",
+        "operationId":"updateList",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List Id",
+            "name":"listid",
+            "required":true,
+            "type":"string",
+            "default":"friends"
+          },
+          {  
+            "in":"body",
+            "description":"vid and lst values required",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/ListRequest"
+            }
+          }
+        ]
+      },
+      "post":{  
+        "responses":{  
+          "400":{  
+            "description":"\"listid\" and \"user list\" are required."
+          },
+          "404":{  
+            "description":"User list \"{listid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/ListResponse"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "lists"
+        ],
+        "summary":"Set user List",
+        "operationId":"postList",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List Id",
+            "name":"listid",
+            "required":true,
+            "type":"string",
+            "default":"friends"
+          },
+          {  
+            "in":"body",
+            "description":"vid and lst values required",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/UserListRequest"
+            }
+          }
+        ]
+      },
+      "delete":{  
+        "responses":{  
+          "400":{  
+            "description":"\"listid\" is required."
+          },
+          "404":{  
+            "description":"User list \"{listid}\" not found"
+          }
+        },
+        "description":"",
+        "tags":[  
+          "lists"
+        ],
+        "summary":"Delete user List",
+        "operationId":"deleteList",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List Id",
+            "name":"listid",
+            "required":true,
+            "type":"string",
+            "default":"friends"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/messages":{  
+      "delete":{  
+        "responses":{  
+          "400":{  
+            "description":"mids parameter is required."
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          }
+        },
+        "description":"",
+        "tags":[  
+          "messages"
+        ],
+        "summary":"Delete messages",
+        "operationId":"postMessage",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"query",
+            "description":"Message Ids",
+            "name":"mids",
+            "required":true,
+            "type":"string",
+            "default":"1,3,5"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/scores?leads":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/ScoreList"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "scores"
+        ],
+        "summary":"Get scores for all leaderboards",
+        "operationId":"getUserScores",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/leaderboards/{leaderboardId}/scores":{  
+      "delete":{  
+        "responses":{  
+          "404":{  
+            "description":"Leaderboard not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/Score"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "scores"
+        ],
+        "summary":"Delete score from leaderboard [Developer]",
+        "operationId":"setScore",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"leaderboard id",
+            "name":"leaderboardId",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/lists/{listId}/leaderboards/{leaderboardId}/scores":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"list '{listId}' not found."
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/ScoreList"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "scores"
+        ],
+        "summary":"Get scores for leaderboard of a list",
+        "operationId":"getListLeaderboardScores",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"List id",
+            "name":"listId",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"leaderboard id",
+            "name":"leaderboardId",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/tmpdata/{slotId}":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"'{slotId}' does not exist."
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/UserTmpData"
+            }
+          }
+        },
+        "description":"",
+        "tags":[  
+          "tmpdata"
+        ],
+        "summary":"Get user tmpdata",
+        "operationId":"getUserTmpData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"slot id that defined by app",
+            "name":"slotId",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      },
+      "put":{  
+        "responses":{  
+          "400":{  
+            "description":"ttl must be less than SLOT_MAX_LIFETIME seconds"
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          }
+        },
+        "description":"",
+        "tags":[  
+          "tmpdata"
+        ],
+        "summary":"Set user tmpdata",
+        "operationId":"setUserTmpData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"slot id that defined by app",
+            "name":"slotId",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"body",
+            "description":"value and ttl values required",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/UserTmpData"
+            }
+          }
+        ]
+      },
+      "delete":{  
+        "responses":{  
+          "404":{  
+            "description":"'{slotId}' does not exist."
+          }
+        },
+        "description":"",
+        "tags":[  
+          "tmpdata"
+        ],
+        "summary":"Delete user tmpdata",
+        "operationId":"deleteUserTmpData",
+        "produces":[  
+          "application/json"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"user id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"slot id that defined by app",
+            "name":"slotId",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/oauth2/token":{  
+      "post":{  
+        "responses":{  
+          "400":{  
+            "description":"Invalid Request"
+          },
+          "401":{  
+            "description":"Invalid Client"
+          },
+          "404":{  
+            "description":"User not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/Token"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Create access token",
+        "operationId":"createAccessToken",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "token"
+        ],
+        "parameters":[  
+          {  
+            "in":"body",
+            "description":"Token request",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/TokenRequest"
+            }
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users":{  
+      "post":{  
+        "responses":{  
+          "400":{  
+            "description":"\"vid\", \"uvid\", \"credentials\" and \"type\" parameters are required"
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/UserCreateResponse"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Create user",
+        "operationId":"createUser",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"body",
+            "description":"User info",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/UserRequest"
+            }
+          },
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/vendorusers":{  
+      "put":{  
+        "responses":{  
+          "400":{  
+            "description":"\"vid\", \"uvid\", \"credentials\" and \"type\" parameters are required"
+          },
+          "404":{  
+            "description":"User \"{uid}\" not found"
+          },
+          "default":{  
+            "schema":{  
+              "$ref":"#/definitions/AddMoveVendorResponse"
+            }
+          }
+        },
+        "description":"",
+        "summary":"Add/Move vendor",
+        "operationId":"addMoveVendor",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"body",
+            "description":"User info",
+            "name":"body",
+            "required":true,
+            "schema":{  
+              "$ref":"#/definitions/UserRequest"
+            }
+          },
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/details":{  
+      "get":{  
+        "responses":{  
+          "404":{  
+            "description":"User \"{uid}\" not found"
+          }
+        },
+        "description":"",
+        "summary":"Get user details",
+        "operationId":"getUserDetails",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/details/status":{  
+      "put":{  
+        "responses":{  
+          "404":{  
+            "description":"UserApp not found: {uid}"
+          }
+        },
+        "description":"",
+        "summary":"Change user status [Developer]",
+        "operationId":"changeSta",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"body",
+            "description":"status",
+            "name":"sta",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{uid}/{status}":{  
+      "put":{  
+        "responses":{  
+          "404":{  
+            "description":"UserApp not found: {uid}"
+          }
+        },
+        "description":"",
+        "summary":"Change user status to Authorize/Deauthorize",
+        "operationId":"AuthorizeUser",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id",
+            "name":"uid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"status",
+            "name":"status",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    },
+    "/apps/{appid}/users/{userTypeId}/type/{userType}/style/{deleteStyle}":{  
+      "delete":{  
+        "responses":{  
+          "400":{  
+            "description":"Data error: Uid {userTypeId} does not exis"
+          },
+          "404":{  
+            "description":"Application \"{appid}\" not found"
+          }
+        },
+        "description":"",
+        "summary":"Delete a user",
+        "operationId":"deleteUser",
+        "produces":[  
+          "application/json"
+        ],
+        "tags":[  
+          "users"
+        ],
+        "parameters":[  
+          {  
+            "in":"path",
+            "description":"Application Id",
+            "name":"appid",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id or user vendor id",
+            "name":"userTypeId",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"User Id or user vendor id",
+            "name":"userType",
+            "required":true,
+            "type":"string"
+          },
+          {  
+            "in":"path",
+            "description":"Delete Style",
+            "name":"deleteStyle",
+            "required":true,
+            "type":"string"
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions":{  
+    "bearer":{  
+      "type": "oauth2",
+      "authorizationUrl": ""
+    }
+  },
+  "host":"",
+  "basePath":"/",
+  "tags":[  
+    {  
+      "name":"health",
+      "description":"Health Api"
+    },
+    {  
+      "name":"token",
+      "description":"Access Tokens Api"
+    },
+    {  
+      "name":"users",
+      "description":"Users Api"
+    },
+    {  
+      "name":"apps",
+      "description":"Apps Api"
+    },
+    {  
+      "name":"scores",
+      "description":"Scores Api"
+    },
+    {  
+      "name":"data",
+      "description":"User Data Api"
+    },
+    {  
+      "name":"tmpdata",
+      "description":"User Tmp Data Api"
+    },
+    {  
+      "name":"messages",
+      "description":"Messages Api"
+    },
+    {  
+      "name":"lists",
+      "description":"Lists Api"
+    },
+    {  
+      "name":"analysis",
+      "description":"Analysis Api"
+    },
+    {  
+      "name":"batch",
+      "description":"Batch Api"
+    }
+  ],
+  "definitions":{  
+    "Action":{  
+      "properties":{  
+        "actionid":{  
+          "type":"string",
+          "description":"Action Id"
+        },
+        "uid":{  
+          "type":"string",
+          "description":"User id"
+        },
+        "tmc":{  
+          "type":"string",
+          "description":""
+        },
+        "vuid":{  
+          "type":"string",
+          "description":"vendor id"
+        }
+      },
+      "required":[  
+        "actionid",
+        "uid",
+        "tmc",
+        "vuid"
+      ]
+    },
+    "AnalysisResponse":{  
+      "properties":{  
+        "LastEvaluatedKey":{  
+          "type":"string"
+        },
+        "actions":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/Action"
+          }
+        }
+      },
+      "required":[  
+        "LastEvaluatedKey",
+        "actions"
+      ]
+    },
+    "AnalysisResponseDetails":{  
+      "properties":{  
+        "LastEvaluatedKey":{  
+          "type":"string"
+        },
+        "users":{  
+          "type":"array",
+          "items":{  
+            "type":"string"
+          }
+        }
+      },
+      "required":[  
+        "LastEvaluatedKey",
+        "users"
+      ]
+    },
+    "App":{  
+      "properties":{  
+        "id":{  
+          "type":"string",
+          "description":"Id of app"
+        },
+        "name":{  
+          "type":"string",
+          "description":"Name of app"
+        },
+        "services":{  
+          "type":"string",
+          "description":"Servises which app provides"
+        }
+      },
+      "required":[  
+        "id",
+        "name"
+      ]
+    },
+    "Request":{  
+      "properties":{  
+        "path":{  
+          "type":"string",
+          "description":"path to modification eg. '/co'"
+        },
+        "op":{  
+          "type":"string",
+          "description":"Operation",
+          "enum":[  
+            "replace",
+            "add"
+          ]
+        },
+        "value":{  
+          "type":"integer",
+          "format":"int64"
+        }
+      },
+      "required":[  
+        "path",
+        "op",
+        "value"
+      ]
+    },
+    "BatchRequest":{  
+      "properties":{  
+        "requests":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/Request"
+          }
+        }
+      },
+      "required":[  
+        "requests"
+      ]
+    },
+    "Response":{  
+      "properties":{  
+        "code":{  
+          "type":"integer",
+          "description":"status code"
+        },
+        "status":{  
+          "type":"string",
+          "description":"status",
+          "enum":[  
+            "error",
+            "success"
+          ]
+        },
+        "data":{  
+          "type":"json",
+          "description":"data"
+        },
+        "message":{  
+          "type":"string",
+          "description":"error message"
+        }
+      },
+      "required":[  
+        "code",
+        "status"
+      ]
+    },
+    "BatchResponse":{  
+      "properties":{  
+        "responses":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/Response"
+          }
+        }
+      },
+      "required":[  
+        "responses"
+      ]
+    },
+    "UserList":{  
+      "properties":{  
+        "data":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/ListEntity"
+          }
+        }
+      },
+      "required":[  
+        "data"
+      ]
+    },
+    "ListEntity":{  
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        }
+      },
+      "required":[  
+        "appuid"
+      ]
+    },
+    "ListRequest":{  
+      "properties":{  
+        "vid":{  
+          "type":"string",
+          "description":"vendor id"
+        },
+        "lst":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/string"
+          }
+        }
+      },
+      "required":[  
+        "lst",
+        "vid"
+      ]
+    },
+    "ListResponse":{  
+      "properties":{  
+        "valid":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/string"
+          }
+        },
+        "invalid":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/string"
+          }
+        }
+      },
+      "required":[  
+        "valid",
+        "invalid"
+      ]
+    },
+    "Message":{  
+      "properties":{  
+        "type":{  
+          "type":"string",
+          "description":"Message type"
+        },
+        "message":{  
+          "type":"string",
+          "description":"Message text"
+        },
+        "exp":{  
+          "type":"string",
+          "description":""
+        }
+      },
+      "required":[  
+        "type",
+        "message",
+        "exp"
+      ]
+    },
+    "MessageInfo":{  
+      "properties":{  
+        "type":{  
+          "type":"string",
+          "description":"Message type"
+        },
+        "message":{  
+          "type":"string",
+          "description":"Message text"
+        },
+        "exp":{  
+          "type":"string",
+          "description":""
+        },
+        "mid":{  
+          "type":"string",
+          "description":"Message Id"
+        },
+        "ts":{  
+          "$ref":"#/definitions/timestamp"
+        }
+      },
+      "required":[  
+        "type",
+        "message",
+        "exp"
+      ]
+    },
+    "MessageList":{  
+      "properties":{  
+        "messages":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/MessageInfo"
+          }
+        }
+      },
+      "required":[  
+        "messages"
+      ]
+    },
+    "Score":{  
+      "properties":{  
+        "score":{  
+          "type":"integer",
+          "format":"int64"
+        },
+        "tag":{  
+          "type":"string"
+        },
+        "lid":{  
+          "type":"string",
+          "description":"leaderboard id"
+        },
+        "uid":{  
+          "type":"string",
+          "description":"user id"
+        }
+      },
+      "required":[  
+        "score"
+      ]
+    },
+    "ScoreRequest":{  
+      "properties":{  
+        "score":{  
+          "type":"integer",
+          "format":"int64"
+        },
+        "tag":{  
+          "type":"string"
+        }
+      },
+      "required":[  
+        "score"
+      ]
+    },
+    "ScoreList":{  
+      "properties":{  
+        "scores":{  
+          "type":"array",
+          "items":{  
+            "$ref":"#/definitions/Score"
+          }
+        }
+      },
+      "required":[  
+        "scores"
+      ]
+    },
+    "UserTmpData":{  
+      "properties":{  
+        "value":{  
+          "type":"string"
+        },
+        "ttl":{  
+          "type":"integer",
+          "format":"int64"
+        }
+      }
+    },
+    "Token":{  
+      "properties":{  
+        "access_token":{  
+          "type":"string"
+        },
+        "token_type":{  
+          "type":"string",
+          "description":"type of token "
+        },
+        "expires_at":{  
+          "type":"integer",
+          "description":"expiration date unix timestamp"
+        },
+        "scope":{  
+          "type":"string",
+          "description":"scope of permissions"
+        }
+      },
+      "required":[  
+        "access_token",
+        "token_type",
+        "expires_at",
+        "scope"
+      ]
+    },
+    "TokenRequest":{  
+      "properties":{  
+        "grant_type":{  
+          "type":"string",
+          "description":"Type of authorization grant",
+          "enum":[  
+            "client_credentials",
+            "password"
+          ]
+        },
+        "client_id":{  
+          "type":"string",
+          "description":"Client id"
+        },
+        "client_secret":{  
+          "type":"string",
+          "description":"Client secret"
+        },
+        "scope":{  
+          "type":"string",
+          "description":"Scope of permission",
+          "enum":[  
+            "user:apps.{appid}",
+            "developer:apps.{appid}",
+            "analysis",
+            "admin",
+            "test",
+            "user",
+            "developer"
+          ]
+        },
+        "username":{  
+          "type":"string",
+          "description":"equired when grant_type is password"
+        },
+        "password":{  
+          "type":"string",
+          "description":"required when grant_type is password"
+        },
+        "token_type":{  
+          "type":"string",
+          "description":"type of token (bearer,mac)"
+        }
+      },
+      "required":[  
+        "grant_type",
+        "client_id",
+        "client_secret",
+        "scope"
+      ]
+    },
+    "UserCreateResponse":{  
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        },
+        "tmc":{  
+          "type":"string",
+          "description":""
+        }
+      },
+      "required":[  
+        "appuid",
+        "tmc"
+      ]
+    },
+    "UserRequest":{  
+      "properties":{  
+        "vid":{  
+          "type":"string",
+          "description":"vendor id",
+          "enum":[  
+            "fb",
+            "dum"
+          ]
+        },
+        "uvid":{  
+          "type":"string",
+          "description":"vendor user id. e.g: facebook id of user"
+        },
+        "credentials":{  
+          "type":"string",
+          "description":"vendor credentials. 'signed_request'"
+        },
+        "type":{  
+          "type":"string",
+          "description":"type of user",
+          "enum":[  
+            "1",
+            "2"
+          ]
+        }
+      },
+      "required":[  
+        "vid",
+        "uvid",
+        "credentials"
+      ]
+    },
+    "AddMoveVendorResponse":{  
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        },
+        "action":{  
+          "type":"string",
+          "description":" Add or Move"
+        }
+      },
+      "required":[  
+        "appuid",
+        "action"
+      ]
+    }
+  }
+}

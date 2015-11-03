@@ -1,0 +1,319 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "resourcePath":"/leaderboards/{leaderboardId}/scores",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/apps/{appid}/users/{uid}/scores?leads",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get scores for all leaderboards",
+          "nickname":"getUserScores",
+          "type":"ScoreList",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"User id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/leaderboards/{leaderboardId}/scores",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get scores for the leaderboard",
+          "type":"ScoreList",
+          "nickname":"getLeaderboardScores",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"leaderboardId",
+              "description":"leaderboard id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uids",
+              "description":"comma separated user ids",
+              "required":true,
+              "type":"string",
+              "paramType":"query"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Leaderboard not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"You can get at most MULTIPLE_LIMIT(32) results."
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/leaderboards/{leaderboardId}/scores",
+      "operations":[  
+        {  
+          "method":"POST",
+          "summary":"Update score for leaderboard",
+          "notes":"Updates score if and only if the new score is better.",
+          "type":"Score",
+          "nickname":"setScore",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"leaderboardId",
+              "description":"leaderboard id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"body",
+              "description":"Score object",
+              "required":true,
+              "type":"ScoreRequest",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Leaderboard not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"score parameter is required."
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/leaderboards/{leaderboardId}/scores",
+      "operations":[  
+        {  
+          "method":"DELETE",
+          "summary":"Delete score from leaderboard [Developer]",
+          "type":"Score",
+          "nickname":"setScore",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"leaderboardId",
+              "description":"leaderboard id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Leaderboard not found"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/lists/{listId}/leaderboards/{leaderboardId}/scores",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get scores for leaderboard of a list",
+          "type":"ScoreList",
+          "nickname":"getListLeaderboardScores",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"user id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"listId",
+              "description":"List id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"leaderboardId",
+              "description":"leaderboard id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Leaderboard not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"list '{listId}' not found."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "Score":{  
+      "id":"Score",
+      "properties":{  
+        "score":{  
+          "type":"integer",
+          "format":"int64"
+        },
+        "tag":{  
+          "type":"string"
+        },
+        "lid":{  
+          "type":"string",
+          "description":"leaderboard id"
+        },
+        "uid":{  
+          "type":"string",
+          "description":"user id"
+        }
+      },
+      "required":[  
+        "score"
+      ]
+    },
+    "ScoreRequest":{  
+      "id":"ScoreRequest",
+      "properties":{  
+        "score":{  
+          "type":"integer",
+          "format":"int64"
+        },
+        "tag":{  
+          "type":"string"
+        }
+      },
+      "required":[  
+        "score"
+      ]
+    },
+    "ScoreList":{  
+      "id":"ScoreList",
+      "properties":{  
+        "scores":{  
+          "type":"array",
+          "items":{  
+            "$ref":"Score"
+          }
+        }
+      },
+      "required":[  
+        "scores"
+      ]
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Flux Payment Documentation",
+    "description": "..."
+  },
+  "paths": {
+    "/packages": {
+      "get": {
+        "responses": {
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/PackageInfo"
+            }
+          }
+        },
+        "description": "",
+        "tags": [
+          "payment"
+        ],
+        "summary": "Get Packages",
+        "operationId": "getPackages",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "app id",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "maksimum number of returned data",
+            "name": "_limit",
+            "required": false,
+            "type": "integer","format": "int64"
+          },
+          {
+            "in": "query",
+            "description": "start time of data",
+            "name": "_offset",
+            "required": false,
+            "type": "integer","format": "int64"
+          },
+          {
+            "in": "query",
+            "description": "order",
+            "name": "_orderBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "category",
+            "name": "category",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "package id",
+            "name": "id",
+            "required": false,
+            "type": "integer","format": "int64"
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+     "bearer":{
+      "type": "oauth2",
+      "authorizationUrl": ""
+    }
+  },
+  "host": null,
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "api-docs/listings/payment",
+      "description": "Payment Api"
+    }
+  ],
+  "definitions": {
+    "PackageInfo":{
+      "properties": {
+        "id": {
+          "type": "integer","format": "int64",
+          "description": "Package Id"
+        },
+        "appId": {
+          "type": "string",
+          "description": "app Id"
+        },
+        "appData": {
+          "type": "string",
+          "description": "app data"
+        },
+        "description": {
+          "type": "string",
+          "description": "descrtion of package"
+        },
+        "status": {
+          "type": "integer","format": "int64",
+          "description": "package status"
+        },
+        "category": {
+          "type": "string",
+          "description": "package category"
+        },
+        "displayScope": {
+          "type": "integer","format": "int64",
+          "description": "display Scope"
+        },
+        "displayOrder": {
+          "type": "integer","format": "int64",
+          "description": "display Order"
+        },
+        "startTime": {
+          "type": "integer","format": "int64",
+          "description": "startTime"
+        },
+        "endTime": {
+          "type": "integer","format": "int64",
+          "description": "endTime"
+        },
+        "lifeTime": {
+          "type": "integer","format": "int64",
+          "description": "lifeTime"
+        },
+        "createTime": {
+          "type": "integer","format": "int64",
+          "description": "createTime"
+        },
+        "updateTime": {
+          "type": "integer","format": "int64",
+          "description": "updateTime"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PackageItem"
+          }
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PackagePrice"
+          }
+        }
+      },
+      "required": []
+    },
+    "PackageItem": {
+      "properties": {
+        "packageid": {
+          "type": "integer","format": "int64",
+          "description": "Package Id"
+        },
+        "id": {
+          "type": "integer","format": "int64",
+          "description": "PackageItem Id"
+        },
+        "amount": {
+          "type": "integer","format": "int64",
+          "description": "amount"
+        },
+        "assetType": {
+          "type": "string",
+          "description": "asset Type"
+        },
+        "assetCode": {
+          "type": "string",
+          "description": "asset Type"
+        }
+      },
+      "required": []
+    },
+    "PackagePrice": {
+      "properties": {
+        "packageid": {
+          "type": "integer","format": "int64",
+          "description": "Package Id"
+        },
+        "id": {
+          "type": "integer","format": "int64",
+          "description": "PackageItem Id"
+        },
+        "salePrice": {
+          "type": "integer","format": "int64",
+          "description": "sale Price"
+        },
+        "price": {
+          "type": "integer","format": "int64",
+          "description": "Price"
+        },
+        "currency": {
+          "type": "string",
+          "description": "currency"
+        }
+      },
+      "required": []
+    }
+  }
+}

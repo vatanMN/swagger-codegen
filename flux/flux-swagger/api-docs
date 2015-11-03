@@ -1,0 +1,60 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "apis": [
+  	{
+      "path": "/api-docs/listings/health",
+      "description": "Health Api"
+    },
+    {
+      "path": "/api-docs/listings/tokens",
+      "description": "Access Tokens Api"
+    },
+    {
+      "path": "/api-docs/listings/users",
+      "description": "Users Api"
+    },    
+    {
+      "path": "/api-docs/listings/apps",
+      "description": "Apps Api"
+    },
+    {
+      "path": "/api-docs/listings/scores",
+      "description": "Scores Api"
+    },
+    {
+      "path": "/api-docs/listings/data",
+      "description": "User Data Api"
+    },
+    {
+      "path": "/api-docs/listings/tmpdata",
+      "description": "User Tmp Data Api"
+    },
+    {
+      "path": "/api-docs/listings/message",
+      "description": "Messages Api"
+    },
+    {
+      "path": "/api-docs/listings/lists",
+      "description": "Lists Api"
+    },
+    {
+      "path": "/api-docs/listings/analysis",
+      "description": "Analysis Api"
+    },
+    {
+      "path": "/api-docs/listings/batch",
+      "description": "Batch Api"
+    }
+  ],
+  "authorizations": {
+    "ouths2": [
+      "bearer":{}
+    ]
+  },
+  "basePath": "/",
+  "info": {
+    "title": "Flux Core Documentation",
+    "description": "..."
+  }
+}

@@ -1,0 +1,131 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/apps/{appid}/settings",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get current app's settings",
+          "notes":"App specific settings",
+          "nickname":"getAppSettings",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application\"{appid}\" not found"
+            }
+          ]
+        },
+        {  
+          "method":"PUT",
+          "summary":"Update app's settings [Developer]",
+          "notes":"App specific settings",
+          "nickname":"getAppSettings",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"appdata",
+              "description":"Application Id",
+              "required":true,
+              "type":"json",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":400,
+              "message":"Request body must be a non empty valid json object."
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps",
+      "operations":[  
+        {  
+          "method":"POST",
+          "summary":"Create an App [Admin]",
+          "notes":"Create an App (Admin token required)",
+          "nickname":"createApp",
+          "type":"App",
+          "parameters":[  
+            {  
+              "name":"appdata",
+              "description":"Application Id",
+              "required":true,
+              "type":"App",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":400,
+              "message":"[id] or [name]: This field is missing."
+            }
+          ]
+        },
+        {  
+          "method":"GET",
+          "summary":"Get Apps[Admin]",
+          "notes":"Get Apps (Admin token required)",
+          "nickname":"getApps",
+          "type":"array",
+          "items":{  
+            "$ref":"App"
+          }
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "App":{  
+      "id":"App",
+      "properties":{  
+        "id":{  
+          "type":"string",
+          "description":"Id of app"
+        },
+        "name":{  
+          "type":"string",
+          "description":"Name of app"
+        },
+        "services":{  
+          "type":"string",
+          "description":"Servises which app provides"
+        }
+      },
+      "required":[  
+        "id",
+        "name"
+      ]
+    }
+  }
+}

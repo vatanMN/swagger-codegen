@@ -1,0 +1,131 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/batch",
+      "operations":[  
+        {  
+          "method":"POST",
+          "summary":"Send batch requests",
+          "nickname":"sendBatchRequests",
+          "type":"BatchResponse",
+          "parameters":[  
+            {  
+              "name":"body",
+              "description":"Batch request",
+              "required":true,
+              "type":"BatchRequest",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"requests parameter is required."
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"At least one request object is required."
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"\"method\" and \"path\" parameters are required for every sub request in batch service."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "Request":{  
+      "id":"Request",
+      "properties":{  
+        "method":{  
+          "type":"string",
+          "enum":[  
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE",
+            "PATCH",
+            "HEAD",
+            "OPTIONS"
+          ],
+          "description":"Http method"
+        },
+        "path":{  
+          "type":"string",
+          "description":"/path/to/resource"
+        },
+        "body":{  
+          "type":"string",
+          "description":"Request body"
+        }
+      },
+      "required":[  
+        "method",
+        "path"
+      ]
+    },
+    "BatchRequest":{  
+      "id":"BatchRequest",
+      "properties":{  
+        "requests":{  
+          "type":"array",
+          "items":{  
+            "$ref":"Request"
+          }
+        }
+      },
+      "required":[  
+        "requests"
+      ]
+    },
+    "BatchResponse":{  
+      "id":"BatchResponse",
+      "properties":{  
+        "responses":{  
+          "type":"array",
+          "items":{  
+            "$ref":"Response"
+          }
+        }
+      },
+      "required":[  
+        "responses"
+      ]
+    },
+    "Response":{  
+      "id":"Response",
+      "properties":{  
+        "status":{  
+          "type":"string",
+          "description":"Response Status"
+        },
+        "data":{  
+          "type":"string",
+          "description":"Response data"
+        },
+        "code":{  
+          "type":"integer",
+          "format":"int64",
+          "description":"Error code"
+        },
+        "message":{  
+          "type":"string",
+          "description":"Error message"
+        }
+      },
+      "required":[  
+        "status"
+      ]
+    }
+  }
+}

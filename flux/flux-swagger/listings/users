@@ -1,0 +1,409 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/apps/{appid}/users",
+      "operations":[  
+        {  
+          "method":"POST",
+          "summary":"Create user",
+          "nickname":"createUser",
+          "type":"UserCreateResponse",
+          "parameters":[  
+            {  
+              "name":"body",
+              "description":"User info",
+              "required":true,
+              "type":"UserRequest",
+              "paramType":"body"
+            },
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"\"vid\", \"uvid\", \"credentials\" and \"type\" parameters are required",
+              "code":400
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/vendorusers",
+      "operations":[  
+        {  
+          "method":"PUT",
+          "summary":"Add/Move vendor",
+          "nickname":"addMoveVendor",
+          "type":"AddMoveVendorResponse",
+          "parameters":[  
+            {  
+              "name":"body",
+              "description":"User info",
+              "required":true,
+              "type":"UserRequest",
+              "paramType":"body"
+            },
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"User Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"\"vid\", \"uvid\", \"credentials\" and \"type\" parameters are required",
+              "code":400
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User \"{uid}\" not found"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/details",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get user details",
+          "nickname":"getUserDetails",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"User Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User \"{uid}\" not found"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{vuid}/details/type/uservendor",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Get user details",
+          "nickname":"getUserDetailsWithVuid",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"vuid",
+              "description":"Vendor User Id (fbId)",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User \"{vuid}\" not found"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/details/status",
+      "operations":[  
+        {  
+          "method":"PUT",
+          "summary":"Change user status [Developer]",
+          "nickname":"changeSta",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"User Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"body",
+              "description":"status",
+              "required":true,
+              "type":"string",
+              "defaultValue":"{\"sta\":\"2\"}",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"UserApp not found: {uid}"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{uid}/{status}",
+      "operations":[  
+        {  
+          "method":"PUT",
+          "summary":"Change user status",
+          "nickname":"UpdateStatus",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"uid",
+              "description":"User Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"status",
+              "description":"status",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "ban",
+                "unban",
+                "activate",
+                "deactivate",
+                "authorize",
+                "deauthorize",
+              ]
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"UserApp not found: {uid}"
+            }
+          ]
+        }
+      ]
+    },
+    {  
+      "path":"/apps/{appid}/users/{userTypeId}/type/{userType}/style/{deleteStyle}",
+      "operations":[  
+        {  
+          "method":"DELETE",
+          "summary":"Delete a user",
+          "nickname":"deleteUser",
+          "parameters":[  
+            {  
+              "name":"appid",
+              "description":"Application Id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"userTypeId",
+              "description":"User Id or user vendor id",
+              "required":true,
+              "type":"string",
+              "paramType":"path"
+            },
+            {  
+              "name":"userType",
+              "description":"User Id or user vendor id",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "uservendor",
+                "userbase"
+              ]
+            },
+            {  
+              "name":"deleteStyle",
+              "description":"Delete Style",
+              "required":true,
+              "type":"string",
+              "paramType":"path",
+              "enum":[  
+                "single",
+                "chain"
+              ]
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":404,
+              "message":"Application \"{appid}\" not found"
+            },
+            {  
+              "status":"error",
+              "message":"User not found for vuid: {userTypeId}",
+              "code":400
+            },
+            {  
+              "status":"error",
+              "message":"Data error: Uid {userTypeId} does not exis",
+              "code":400
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "UserCreateResponse":{  
+      "id":"UserCreateResponse",
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        },
+        "tmc":{  
+          "type":"string",
+          "description":""
+        }
+      },
+      "required":[  
+        "appuid",
+        "tmc"
+      ]
+    },
+    "UserRequest":{  
+      "id":"UserRequest",
+      "properties":{  
+        "vid":{  
+          "type":"string",
+          "description":"vendor id",
+          "enum":[  
+            "fb",
+            "dum"
+          ]
+        },
+        "uvid":{  
+          "type":"string",
+          "description":"vendor user id. e.g: facebook id of user"
+        },
+        "credentials":{  
+          "type":"string",
+          "description":"vendor credentials. 'signed_request'"
+        },
+        "type":{  
+          "type":"string",
+          "description":"type of user",
+          "enum":[  
+            "1",
+            "2"
+          ]
+        }
+      },
+      "required":[  
+        "vid",
+        "uvid",
+        "credentials"
+      ]
+    },
+    "AddMoveVendorResponse":{  
+      "id":"VendorMoveAddResponse",
+      "properties":{  
+        "appuid":{  
+          "type":"string",
+          "description":"user id"
+        },
+        "action":{  
+          "type":"string",
+          "description":" Add or Move"
+        }
+      },
+      "required":[  
+        "appuid",
+        "action"
+      ]
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "apis":[  
+    {  
+      "path":"/oauth2/token",
+      "operations":[  
+        {  
+          "method":"POST",
+          "summary":"Create access token",
+          "nickname":"createAccessToken",
+          "type":"Token",
+          "parameters":[  
+            {  
+              "name":"body",
+              "description":"Token request",
+              "required":true,
+              "type":"TokenRequest",
+              "paramType":"body"
+            }
+          ],
+          "responseMessages":[  
+            {  
+              "status":"error",
+              "code":400,
+              "message":"Invalid Request"
+            },
+            {  
+              "status":"error",
+              "code":401,
+              "message":"Invalid Client"
+            },
+            {  
+              "status":"error",
+              "code":404,
+              "message":"User not found"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+    "Token":{  
+      "id":"Token",
+      "properties":{  
+        "access_token":{  
+          "type":"string"
+        },
+        "token_type":{  
+          "type":"string",
+          "description":"type of token "
+        },
+        "expires_at":{  
+          "type":"integer",
+          "description":"expiration date unix timestamp"
+        },
+        "scope":{  
+          "type":"string",
+          "description":"scope of permissions"
+        }
+      },
+      "required":[  
+        "access_token",
+        "token_type",
+        "expires_at",
+        "scope"
+      ]
+    },
+    "TokenRequest":{  
+      "id":"TokenRequest",
+      "properties":{  
+        "grant_type":{  
+          "type":"string",
+          "description":"Type of authorization grant",
+          "enum":[  
+            "client_credentials",
+            "password"
+          ]
+        },
+        "client_id":{  
+          "type":"string",
+          "description":"Client id"
+        },
+        "client_secret":{  
+          "type":"string",
+          "description":"Client secret"
+        },
+        "scope":{  
+          "type":"string",
+          "description":"Scope of permission",
+          "enum":[  
+            "user:apps.{appid}",
+            "developer:apps.{appid}",
+            "analysis",
+            "admin"
+          ]
+        },
+        "username":{  
+          "type":"string",
+          "description":"equired when grant_type is password"
+        },
+        "password":{  
+          "type":"string",
+          "description":"required when grant_type is password"
+        }
+      },
+      "required":[  
+        "grant_type",
+        "client_id",
+        "client_secret",
+        "scope"
+      ]
+    }
+  }
+}

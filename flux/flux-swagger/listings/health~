@@ -1,0 +1,29 @@
+{  
+  "apiVersion":"1.0.0",
+  "swaggerVersion":"1.2",
+  "produces":[  
+    "application/json"
+  ],
+  "basePath":"/",
+  "apis":[  
+    {  
+      "path":"/health",
+      "operations":[  
+        {  
+          "method":"GET",
+          "summary":"Test system health",
+          "nickname":"getHealth",
+          "parameters":[  
+
+          ],
+          "responseMessages":[  
+
+          ]
+        }
+      ]
+    }
+  ],
+  "models":{  
+
+  }
+}

@@ -1,0 +1,717 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "/",
+  "resourcePath": "/log",
+  "produces": [
+    "application/json"
+  ],
+    "apis": [
+        {
+            "path": "/log/devlog/php",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send PHP Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "phpLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "DevLogEntry"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/devlog/flash",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send Flash Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "flashLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "DevLogEntry"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/devlog/js",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send JavaScript Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "jsLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "DevLogEntry"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/access",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Sending Access Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "accessLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "AccessLog",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "AccessLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/action",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Sending Action Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "actionLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "Action Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "ActionLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/diff",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send Diff Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "DiffLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "Diff Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "DiffLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/state",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send State Log",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "DiffLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "State Log Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "StateLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/user/register",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send users",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "User",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "User Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "User"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/payment",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send PaymentLog",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "PaymentLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "PaymentLog Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "PaymentLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/log/gamelog/calc",
+            "operations": [
+                {
+                    "method": "POST",
+                    "summary": "Send Calc Logs",
+                    "notes": "",
+                    "type": "void",
+                    "nickname": "CalcLog",
+                    "authorizations": {
+                        "no-auth": []
+                    },
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "description": "CalcLog Entry",
+                            "required": true,
+                            "type": "array",
+                            "items": {
+                                "$ref": "CalcLog"
+                            },
+                            "paramType": "body"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "DevLogEntry": {
+            "id": "DevLogEntry",
+            "required": [
+                "app",
+                "message",
+                "logTime"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "errorCode": {
+                    "type": "string"
+                },
+                "requestCode": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "file": {
+                    "type": "string"
+                },
+                "line": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "enterTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "system": {
+                    "$ref": "object"
+                },
+                "deviceId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "AccessLog": {
+            "id": "AccessLog",
+            "required": [
+                "app",
+                "vendorId",
+                "playerId",
+                "logTime"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "vendorUserId": {
+                    "type": "string"
+                },
+                "vendorId": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "extra": {
+                    "$ref": "object"
+                },
+                "system": {
+                    "$ref": "object"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                 "deviceId": {
+                     "type": "integer",
+                     "format": "int64"
+                 },
+                "testId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "testGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "ActionLog": {
+            "id": "ActionLog",
+            "required": [
+                "app",
+                "playerId",
+                "actionId",
+                "itemId",
+                "funnelName",
+                "enterTime",
+                "logTime",
+                "registrationTime"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "actionId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "itemId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priority": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "funnelName": {
+                    "type": "string"
+                },
+                "enterTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "registrationTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "extra": {
+                    "$ref": "object"
+                },
+                 "deviceId": {
+                     "type": "integer",
+                     "format": "int64"
+                 },
+                "testId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "testGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "DiffLog": {
+            "id": "Diff",
+            "required": [
+                "app",
+                "playerId",
+                "diffType",
+                "diff",
+                "reason",
+                "itemId",
+                "level",
+                "logTime",
+                "current"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "diffType": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "diff": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "reason": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "itemId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priority": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "level": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "enterTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "extra": {
+                    "$ref": "object"
+                },
+                "current": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                 "deviceId": {
+                     "type": "integer",
+                     "format": "int64"
+                 },
+                "testId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "testGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "id": "User",
+            "required": [
+                "app",
+                "appuid",
+                "createTime",
+                "vendors",
+                "status"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "appuid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "createTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "referrer": {
+                    "type": "string"
+                },
+                "lang": {
+                    "type": "string"
+                },
+                "vendors": {
+                    "$ref": "Vendors"
+                }
+            }
+        },
+        "Vendors":{
+            "id": "Vendors",
+            "properties": {
+                "fb": {
+                    "$ref": "object"
+                }
+            }
+        },
+        "StateLog": {
+            "id": "StateLog",
+            "required": [
+                "app",
+                "vendorId",
+                "playerId",
+                "logTime"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "vendorId": {
+                    "type": "string"
+                },
+                "vendorUserId": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "enterTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priority": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "reason": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "extra": {
+                    "$ref": "object"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                 "deviceId": {
+                     "type": "integer",
+                     "format": "int64"
+                 },
+                "testId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "testGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "PaymentLog": {
+            "id": "PaymentLog",
+            "required": [
+                "app",
+                "paymentVendorId",
+                "playerId",
+                "logTime"
+            ],
+            "properties": {
+               "app": {
+                   "type": "string"
+               },
+               "playerId": {
+                   "type": "integer",
+                   "format": "int64"
+               },
+               "paymentVendorId": {
+                   "type": "string"
+               },
+               "logTime": {
+                   "type": "integer",
+                   "format": "int64"
+               },
+               "deviceId": {
+                   "type": "integer",
+                   "format": "int64"
+               },
+               "usdExchangeRate": {
+                   "type": "float",
+                   "format": "float"
+               },
+               "itemCount": {
+                   "type": "integer",
+                   "format": "int64"
+               },
+               "itemId": {
+                   "type": "integer",
+                   "format": "int64"
+               },
+               "currency": {
+                   "type": "string"
+               },
+               "amount": {
+                   "type": "float",
+                   "format": "float"
+               },
+               "extra": {
+                   "type": "object"
+               },
+               "system": {
+                   "type": "object"
+               },
+               "offerType": {
+                   "type": "string"
+               },
+                "testId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "testGroup": {
+                    "type": "string"
+                }
+            }
+        },
+        "CalcLog": {
+            "id": "CalcLog",
+            "required": [
+                "app",
+                "category",
+                "metric",
+                "logTime",
+                "val"
+            ],
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "metric": {
+                    "type": "string"
+                },
+                "logTime": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "amount": {
+                   "type": "float",
+                   "format": "float"
+               }
+            }
+        },
+        "object": {
+            "id": "object"
+        }
+    }
+}
